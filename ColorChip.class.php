@@ -207,7 +207,7 @@ class ColorChip{
    *@access public
   */
   function getComplementary(){
-    $nColor = $this->clone();
+    $nColor = clone $this;
     $nColor->adjHue(180);
     return $nColor;
   }
@@ -219,9 +219,9 @@ class ColorChip{
    *@access public
   */
   function getTriad(){
-    $n1 = $this->clone();
+    $n1 = clone $this;
     $n1->adjHue(-120);
-    $n2 = $this->clone();
+    $n2 = clone $this;
     $n2->adjHue(120);
     return array($n1, $n2);
   }
@@ -234,7 +234,7 @@ class ColorChip{
   */
 
   function getNearestWebSafe(){
-    $newCol = $this->clone();
+    $newCol = clone $this;
     $newCol->r = ColorChip::getNearestWebSafeComponent($newCol->r);
     $newCol->g = ColorChip::getNearestWebSafeComponent($newCol->g);
     $newCol->b = ColorChip::getNearestWebSafeComponent($newCol->b);
@@ -299,7 +299,7 @@ class ColorChip{
    */
   function getWebSafeDither(){
     $color1 = $this->getNearestWebSafe();
-    $color2 = $this->clone();
+    $color2 = clone $this;
     $color2->r = ColorChip::getNearestWebSafeComponent($color2->r, CC_WEBSAFE_ALT);
     $color2->g = ColorChip::getNearestWebSafeComponent($color2->g, CC_WEBSAFE_ALT);
     $color2->b = ColorChip::getNearestWebSafeComponent($color2->b, CC_WEBSAFE_ALT);
