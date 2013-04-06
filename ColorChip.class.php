@@ -454,8 +454,8 @@ class ColorChip{
       $value = $this->v / 100;
       $saturation = $this->s / 100;
       
-      if($this->h == false){
-	//Undefined hue means grey.  Adjust value to RGB 0-255 range and return
+      if($this->s == false){
+	//Undefined saturation means grey.  Adjust value to RGB 0-255 range and return
 	$value = floor($value * 255);
 	$this->r = $value;
 	$this->g = $value;
